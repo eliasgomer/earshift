@@ -5,3 +5,4 @@ video/node_modules
 video/out
 *.local
 video/public/soundtrack*.wav
+video/public/preview-*.wav

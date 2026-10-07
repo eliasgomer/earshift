@@ -1,0 +1,5 @@
+{
+  "iphone": { "duration": 780, "modes": [[0, "aware"], [96, "quiet"], [300, "immersion"], [486, "aware"], [570, "quiet"]], "taps": [90, 294, 480] },
+  "ipad": { "duration": 780, "modes": [[0, "aware"], [126, "quiet"], [306, "immersion"], [480, "quiet"]], "taps": [120, 300] },
+  "mac": { "duration": 780, "modes": [[0, "aware"], [126, "quiet"], [480, "aware"], [600, "quiet"]], "taps": [120, 320], "call": [450, 600] }
+}
