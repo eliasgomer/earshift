@@ -1,0 +1,21 @@
+{
+  "voices": { "de": "FTNCalFNG5bRnkkaP5Ug", "en": "1SM7GgM6IMuvQlz2BwM3" },
+  "de": {
+    "open": "Bahn. Büro. Café. Irgendwas ist immer laut.",
+    "click": "Mit Earshift reicht ein Klick in der Menüleiste. Und es wird still. Nur deine Musik bleibt.",
+    "cc": "Auf dem iPhone geht das genauso schnell. Im Kontrollzentrum, per Widget, auf dem Sperrbildschirm oder mit Siri.",
+    "auto": "Oft musst du nicht mal was tun. Du öffnest Zoom, und Earshift schaltet von selbst auf Aware. So hörst du jeden im Call.",
+    "designs": "Es gibt drei Designs. Glass, Studio und Signal. Such dir einfach eins aus.",
+    "widgets": "Und deine Widgets stellst du dir so zusammen, wie du willst.",
+    "outro": "Earshift. Sieben Tage kostenlos testen. Danach einmal drei neunundneunzig, und es gehört dir."
+  },
+  "en": {
+    "open": "Trains. Offices. Cafés. Something's always loud.",
+    "click": "With Earshift, it's one click in the menu bar. And it goes quiet. Just your music.",
+    "cc": "On iPhone, it's just as quick. From Control Center, a widget, the Lock Screen, or Siri.",
+    "auto": "Most of the time, you don't even have to do anything. Open Zoom, and Earshift switches to Aware on its own. So you hear everyone on the call.",
+    "designs": "There are three designs. Glass, Studio, and Signal. Pick the one you like.",
+    "widgets": "And you set up your widgets exactly the way you want.",
+    "outro": "Earshift. Try it free for seven days. After that, it's one small purchase, and it's yours."
+  }
+}

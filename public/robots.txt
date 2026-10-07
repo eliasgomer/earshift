@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eliasgomer.github.io/earshift/sitemap.xml

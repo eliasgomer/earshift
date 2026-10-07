@@ -1,0 +1,20 @@
+{
+  "de": {
+    "open": 145,
+    "click": 214,
+    "cc": 250,
+    "auto": 326,
+    "designs": 170,
+    "widgets": 175,
+    "outro": 254
+  },
+  "en": {
+    "open": 134,
+    "click": 219,
+    "cc": 229,
+    "auto": 353,
+    "designs": 166,
+    "widgets": 198,
+    "outro": 264
+  }
+}

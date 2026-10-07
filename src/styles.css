@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+
+@theme {
+  --font-sans: "Geist Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --color-ink-0: #050409;
+  --color-ink-1: #0a0910;
+  --color-ink-2: #121019;
+  --color-ink-3: #1b1824;
+  --color-line: #25222f;
+  --color-line-strong: #353140;
+  --color-fg: #f3f1f7;
+  --color-fg-2: #a7a3b3;
+  --color-fg-3: #807b8e;
+  --color-quiet: #7c6cf5;
+  --color-aware: #f0b429;
+  --color-immersion: #2fd6c0;
+  --color-accent: var(--accent);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+:root {
+  --accent: #7c6cf5;
+  --accent-light: #a99bff;
+  color-scheme: dark;
+  transition: --accent 0.6s;
+}
+
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #7c6cf5;
+}
+
+html { scroll-behavior: smooth; background: var(--color-ink-0); }
+body {
+  margin: 0;
+  background: var(--color-ink-0);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+::selection { background: color-mix(in oklab, var(--accent) 45%, transparent); }
+
+/* Grain on top of everything - subtle, like analog noise. */
+.grain::after {
+  content: ""; position: fixed; inset: -50%; pointer-events: none; z-index: 60; opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--color-fg-3); }
+.glow-text { background: linear-gradient(180deg, #fff 30%, color-mix(in oklab, var(--accent) 60%, #fff)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+/* Rotating light on a card border (Magic UI "border beam" idea). */
+.beam { position: relative; isolation: isolate; }
+.beam::before {
+  content: ""; position: absolute; inset: -1px; border-radius: inherit; padding: 1px; z-index: -1;
+  background: conic-gradient(from var(--beam-angle), transparent 70%, var(--accent) 85%, transparent 95%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+  animation: beam 5s linear infinite;
+}
+@property --beam-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+@keyframes beam { to { --beam-angle: 360deg; } }
+
+/* Legal / support pages */
+.prose-legal { max-width: 760px; }
+.prose-legal h1 { font-size: clamp(34px, 6vw, 56px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 650; margin: 0 0 12px; }
+.prose-legal h2 { font-size: 22px; letter-spacing: -0.01em; font-weight: 600; margin: 44px 0 10px; }
+.prose-legal h3 { font-size: 17px; font-weight: 600; margin: 26px 0 6px; }
+.prose-legal p, .prose-legal li, .prose-legal address { color: var(--color-fg-2); line-height: 1.7; font-size: 16px; font-style: normal; }
+.prose-legal strong { color: var(--color-fg); font-weight: 600; }
+.prose-legal a { color: var(--accent-light); text-underline-offset: 3px; }
+.prose-legal ul { padding-left: 20px; }
+.prose-legal .muted { font-family: var(--font-mono); font-size: 12.5px; color: var(--color-fg-3); }
+.prose-legal .card { border: 1px solid var(--color-line); background: var(--color-ink-2); border-radius: 18px; padding: 6px 22px; margin: 22px 0; }
+.prose-legal .sep { border: none; border-top: 1px solid var(--color-line); margin: 56px 0 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ── v2: cursor, split lines, marquee, outline type ───────────────────── */
+.has-cursor, .has-cursor * { cursor: none !important; }
+.cursor-dot, .cursor-ring { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 200; border-radius: 999px; }
+.cursor-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #fff; mix-blend-mode: difference; }
+.cursor-ring { width: 36px; height: 36px; margin: -18px 0 0 -18px; border: 1px solid rgba(255,255,255,0.45); display: flex; align-items: center; justify-content: center;
+  transition: width .35s var(--ease-out-expo), height .35s var(--ease-out-expo), margin .35s var(--ease-out-expo), background .35s, border-color .35s; }
+.cursor-ring span { font: 500 11px/1 var(--font-mono); letter-spacing: .14em; text-transform: uppercase; color: #07060b; opacity: 0; transition: opacity .2s; white-space: nowrap; }
+.cursor-ring[data-state="hover"] { width: 56px; height: 56px; margin: -28px 0 0 -28px; border-color: var(--accent); }
+.cursor-ring[data-state="label"] { width: 104px; height: 104px; margin: -52px 0 0 -52px; background: #fff; border-color: #fff; }
+.cursor-ring[data-state="label"] span { opacity: 1; }
+.split-line { padding-bottom: 0.06em; }
+.outline-text { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.18); }
+.hairline { border-color: var(--color-line); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 48s linear infinite; }
+.marquee:hover { animation-play-state: paused; }
+.mode-word { transition: color .6s, -webkit-text-stroke-color .6s; }
+@keyframes eqbar { from { transform: scaleY(0.35); } to { transform: scaleY(1); } }
+@keyframes widgetpop { from { transform: scale(0.92); opacity: 0.4; } to { transform: scale(1); opacity: 1; } }

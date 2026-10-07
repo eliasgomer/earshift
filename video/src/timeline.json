@@ -1,0 +1,99 @@
+{
+  "fps": 30,
+  "scenes": [
+    {
+      "id": "open",
+      "dur": 120
+    },
+    {
+      "id": "click",
+      "dur": 210
+    },
+    {
+      "id": "cc",
+      "dur": 180
+    },
+    {
+      "id": "auto",
+      "dur": 290
+    },
+    {
+      "id": "designs",
+      "dur": 190
+    },
+    {
+      "id": "widgets",
+      "dur": 210
+    },
+    {
+      "id": "outro",
+      "dur": 170
+    }
+  ],
+  "modes": [
+    {
+      "scene": "open",
+      "at": 0,
+      "mode": "aware"
+    },
+    {
+      "scene": "click",
+      "at": 108,
+      "mode": "quiet"
+    },
+    {
+      "scene": "cc",
+      "at": 110,
+      "mode": "immersion"
+    },
+    {
+      "scene": "auto",
+      "at": 205,
+      "mode": "aware"
+    },
+    {
+      "scene": "designs",
+      "at": 0,
+      "mode": "quiet"
+    }
+  ],
+  "clicks": [
+    {
+      "scene": "click",
+      "at": 100
+    },
+    {
+      "scene": "cc",
+      "at": 100
+    },
+    {
+      "scene": "auto",
+      "at": 40
+    }
+  ],
+  "call": {
+    "scene": "auto",
+    "from": 160
+  },
+  "words": [
+    {
+      "scene": "open",
+      "at": 8
+    },
+    {
+      "scene": "open",
+      "at": 30
+    },
+    {
+      "scene": "open",
+      "at": 52
+    },
+    {
+      "scene": "open",
+      "at": 76
+    }
+  ],
+  "voiceOffsets": {
+    "auto": 66
+  }
+}
